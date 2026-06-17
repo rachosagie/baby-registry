@@ -221,7 +221,7 @@
     }
     .btn-shop:hover { background: #EAF3EA; }
 
-    /* MODAL */
+    /* GIFT MODAL */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -282,6 +282,52 @@
     #modal-confirm { background: #7D9E7C; color: #fff; }
     #modal-confirm:hover { background: #698A68; }
 
+    /* ACCOUNT MODAL */
+    .account-details {
+      background: #FAF7F4;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: left;
+      border: 1px solid #EDE8E3;
+      margin-bottom: 20px;
+    }
+    .account-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid #EDE8E3;
+      gap: 8px;
+    }
+    .account-row:last-child { border-bottom: none; }
+    .account-label { font-size: 12px; color: #9A9082; min-width: 90px; }
+    .account-value { font-size: 14px; font-weight: 500; color: #2C2C2C; flex: 1; }
+    .copy-btn {
+      font-size: 11px;
+      color: #7D9E7C;
+      background: none;
+      border: 1.5px solid #7D9E7C;
+      border-radius: 6px;
+      padding: 3px 9px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: #EAF3EA; }
+    #acct-close {
+      background: #7D9E7C;
+      color: #fff;
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+    #acct-close:hover { background: #698A68; }
+
     /* FOOTER */
     footer {
       background: #2C2C2C;
@@ -323,7 +369,7 @@
 <!-- HOW IT WORKS -->
 <div class="how-it-works">
   <p>
-    See something you'd love to gift? Click <strong>"I'll gift this!"</strong> and it'll send us a quick WhatsApp message so we know to expect it. For items marked <strong>"Stock up! Multiple welcome"</strong> — feel free to grab one even if others have too. Every pack counts! 🎁
+    See something you'd love to gift? Click <strong>"I'll gift this!"</strong> and it'll send us a quick WhatsApp message so we know to expect it. For items marked <strong>"Stock up! Multiple welcome"</strong> — click <strong>"I'll contribute!"</strong> to see our account details and send a money contribution instead. Every bit counts! 🎁
   </p>
   <p style="margin-top: 10px; font-size: 13px; color: #9A9082;">
     💡 The shop links are just a guide to show you the exact product we have in mind — you're welcome to buy from any store you prefer!
@@ -347,7 +393,7 @@
       <h3>Baby Wipes</h3>
       <p class="card-note">Must be <strong>alcohol-free and fragrance-free</strong>. Any pack size welcome — we'll always need more!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Wipes (alcohol &amp; fragrance-free)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Wipes')">I'll contribute! 🎁</button>
         <a class="btn btn-shop" href="https://www.jumia.com.ng/huggies-natural-care-plus-baby-wipes-1152-count-410239624.html" target="_blank" rel="noopener">Huggies Natural Care Plus (1152) →</a>
         <a class="btn btn-shop" href="https://www.jumia.com.ng/generic-huggies-pure-baby-wipes-56-x-10packs-323509463.html" target="_blank" rel="noopener">Huggies Pure (10 × 56 packs) →</a>
         <a class="btn btn-shop" href="https://www.jumia.com.ng/water-wipes/" target="_blank" rel="noopener">WaterWipes Aloe Vera →</a>
@@ -394,7 +440,7 @@
       <h3>Baby Diapers — Size 2</h3>
       <p class="card-note">Molfix ComfortFix or Huggies preferred. Any pack size — we can never have too many!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 2 (Molfix or Huggies)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Diapers Size 2')">I'll contribute! 🎁</button>
         <a class="btn btn-shop" href="https://www.jumia.com.ng/molfix-comfortfix-diapers-size-2-giga-economy-pack-x-3-total-288-count-129083516.html" target="_blank" rel="noopener">Molfix ComfortFix Size 2 (Giga Pack) →</a>
       </div>
     </div>
@@ -409,22 +455,22 @@
       <h3>Baby Diapers — Size 3</h3>
       <p class="card-note">Molfix Air Dry or Huggies preferred. Any pack size — we can never have too many!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 3 (Molfix or Huggies)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Diapers Size 3')">I'll contribute! 🎁</button>
         <a class="btn btn-shop" href="https://www.jumia.com.ng/generic-molfix-air-dry-size-3-4-9kg-96pcs-418969101.html" target="_blank" rel="noopener">Molfix Air Dry Size 3 (96 pcs) →</a>
       </div>
     </div>
 
     <!-- Diapers Size 4 -->
     <div class="card">
-      <div class="card-img"><span class="img-placeholder">👶</span></div>
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/61/5380921/1.jpg?4532" alt="Diapers Size 4" loading="lazy" /></div>
       <div class="card-top">
         <span class="card-emoji">👶</span>
         <span class="badge badge-multi">Stock up! Multiple welcome</span>
       </div>
       <h3>Baby Diapers — Size 4</h3>
-      <p class="card-note">Huggies or Softcare Gold preferred. Any pack size — we can never have too many!</p>
+      <p class="card-note">Molfix or Huggies preferred. Any pack size — we can never have too many!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 4 (Huggies or Softcare Gold)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Diapers Size 4')">I'll contribute! 🎁</button>
       </div>
     </div>
 
@@ -513,7 +559,7 @@
       <h3>Baby Zip Onesies — 3–6 Months</h3>
       <p class="card-note">Easy zip-up onesies for those sleepy 3am nappy changes. Any cute style — we love them all!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Zip Onesies 3–6 Months')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Zip Onesies 3–6 Months')">I'll contribute! 🎁</button>
       </div>
     </div>
 
@@ -527,7 +573,7 @@
       <h3>Baby Zip Onesies — 6–9 Months</h3>
       <p class="card-note">Zip onesies for when Baby O is getting bigger and more wriggly! Any cute style welcome.</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Zip Onesies 6–9 Months')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Zip Onesies 6–9 Months')">I'll contribute! 🎁</button>
       </div>
     </div>
 
@@ -541,14 +587,14 @@
       <h3>Baby Clothes</h3>
       <p class="card-note">Outfits, sleepsuits, socks, sets — whatever catches your eye! We'll adore whatever you choose.</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Clothes')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openAccountModal('Baby Clothes')">I'll contribute! 🎁</button>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- MODAL -->
+<!-- GIFT MODAL (WhatsApp) -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal">
     <div class="modal-emoji">🎁</div>
@@ -559,6 +605,31 @@
       <button id="modal-cancel" onclick="closeModal()">Cancel</button>
       <a id="modal-confirm" href="#" target="_blank" rel="noopener">Send via WhatsApp 💚</a>
     </div>
+  </div>
+</div>
+
+<!-- ACCOUNT MODAL (Contributions) -->
+<div class="modal-overlay" id="account-overlay">
+  <div class="modal">
+    <div class="modal-emoji">🏦</div>
+    <h2>Send a contribution</h2>
+    <p id="acct-item-text">Transfer to the account below — every contribution goes straight toward getting Baby O ready! 💚</p>
+    <div class="account-details">
+      <div class="account-row">
+        <span class="account-label">Bank</span>
+        <span class="account-value">Providus Bank</span>
+      </div>
+      <div class="account-row">
+        <span class="account-label">Account No.</span>
+        <span class="account-value">6505065230</span>
+        <button class="copy-btn" onclick="copyAcct(this)">Copy</button>
+      </div>
+      <div class="account-row">
+        <span class="account-label">Account Name</span>
+        <span class="account-value">Rachael Uwumwonse</span>
+      </div>
+    </div>
+    <button id="acct-close" onclick="closeAccountModal()">Done, thank you! 💚</button>
   </div>
 </div>
 
@@ -573,6 +644,7 @@
 
   let pendingItem = '';
 
+  // --- Gift modal (WhatsApp) ---
   function openModal(itemName) {
     pendingItem = itemName;
     document.getElementById('modal-text').innerHTML =
@@ -598,8 +670,30 @@
     if (e.target === this) closeModal();
   });
 
+  // --- Account modal (Contributions) ---
+  function openAccountModal(itemName) {
+    document.getElementById('acct-item-text').innerHTML =
+      'Contributing toward: <strong>' + itemName + '</strong><br>Transfer to the account below — we\'re so grateful! 💚';
+    document.getElementById('account-overlay').classList.add('open');
+  }
+
+  function closeAccountModal() {
+    document.getElementById('account-overlay').classList.remove('open');
+  }
+
+  function copyAcct(btn) {
+    navigator.clipboard.writeText('6505065230').then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  }
+
+  document.getElementById('account-overlay').addEventListener('click', function (e) {
+    if (e.target === this) closeAccountModal();
+  });
+
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') { closeModal(); closeAccountModal(); }
   });
 </script>
 
