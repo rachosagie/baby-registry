@@ -123,6 +123,29 @@
       gap: 20px;
     }
 
+    /* CARD IMAGE */
+    .card-img {
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #EDE8E3, #D6E4D5);
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .card-img .img-placeholder {
+      font-size: 52px;
+      opacity: 0.7;
+    }
+
     /* CARD */
     .card {
       background: #fff;
@@ -275,29 +298,6 @@
       font-weight: 400;
     }
 
-    /* CARD IMAGE */
-    .card-img {
-      border-radius: 10px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #EDE8E3, #D6E4D5);
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .card-img .img-placeholder {
-      font-size: 52px;
-      opacity: 0.7;
-    }
-
     @media (max-width: 500px) {
       .hero { padding: 56px 20px 44px; }
       .registry { padding: 40px 16px; }
@@ -308,7 +308,7 @@
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
   <p class="hero-label">A little wishlist from our family to yours</p>
   <h1>Baby <em>O</em> is Coming</h1>
@@ -320,14 +320,17 @@
   <p class="hero-sign">With so much love, Rach &amp; Nelson ♡</p>
 </section>
 
-<!-- ===== HOW IT WORKS ===== -->
+<!-- HOW IT WORKS -->
 <div class="how-it-works">
   <p>
     See something you'd love to gift? Click <strong>"I'll gift this!"</strong> and it'll send us a quick WhatsApp message so we know to expect it. For items marked <strong>"Stock up! Multiple welcome"</strong> — feel free to grab one even if others have too. Every pack counts! 🎁
   </p>
+  <p style="margin-top: 10px; font-size: 13px; color: #9A9082;">
+    💡 The shop links are just a guide to show you the exact product we have in mind — you're welcome to buy from any store you prefer!
+  </p>
 </div>
 
-<!-- ===== REGISTRY ===== -->
+<!-- REGISTRY -->
 <section class="registry">
   <h2 class="section-title">Baby O's Wishlist</h2>
   <p class="section-sub">Click any item with a shop link to see exactly what we have in mind.</p>
@@ -336,21 +339,24 @@
 
     <!-- Baby Wipes -->
     <div class="card">
-      <div class="card-img"><span class="img-placeholder">🧻</span></div>
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/76/511443/1.jpg?0602" alt="Baby Wipes" loading="lazy" /></div>
       <div class="card-top">
         <span class="card-emoji">🧻</span>
         <span class="badge badge-multi">Stock up! Multiple welcome</span>
       </div>
       <h3>Baby Wipes</h3>
-      <p class="card-note">Huggies or Angel brand — must be <strong>alcohol-free and fragrance-free</strong>. Any pack size is welcome!</p>
+      <p class="card-note">Must be <strong>alcohol-free and fragrance-free</strong>. Any pack size welcome — we'll always need more!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Wipes (alcohol &amp; fragrance-free — Huggies or Angel)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openModal('Baby Wipes (alcohol &amp; fragrance-free)')">I'll contribute! 🎁</button>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/huggies-natural-care-plus-baby-wipes-1152-count-410239624.html" target="_blank" rel="noopener">Huggies Natural Care Plus (1152) →</a>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/generic-huggies-pure-baby-wipes-56-x-10packs-323509463.html" target="_blank" rel="noopener">Huggies Pure (10 × 56 packs) →</a>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/water-wipes/" target="_blank" rel="noopener">WaterWipes Aloe Vera →</a>
       </div>
     </div>
 
     <!-- Breast Pump -->
     <div class="card">
-      <div class="card-img"><img src="https://jidenbreastpump.com/wp-content/uploads/2025/12/IMG_2036-600x750.png" alt="Jiden Easy Life Pumping Bundle" /></div>
+      <div class="card-img"><span class="img-placeholder">🍼</span></div>
       <div class="card-top">
         <span class="card-emoji">🍼</span>
         <span class="badge badge-link">View item</span>
@@ -365,7 +371,7 @@
 
     <!-- Steam Sterilizer -->
     <div class="card">
-      <div class="card-img"><img src="https://jidenbreastpump.com/wp-content/uploads/2025/12/IMG_2012-600x750.png" alt="Jiden Steam Sterilizer" /></div>
+      <div class="card-img"><span class="img-placeholder">♨️</span></div>
       <div class="card-top">
         <span class="card-emoji">♨️</span>
         <span class="badge badge-link">View item</span>
@@ -380,29 +386,31 @@
 
     <!-- Diapers Size 2 -->
     <div class="card">
-      <div class="card-img"><span class="img-placeholder">👶</span></div>
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/61/5380921/1.jpg?4532" alt="Molfix Diapers Size 2" loading="lazy" /></div>
       <div class="card-top">
         <span class="card-emoji">👶</span>
         <span class="badge badge-multi">Stock up! Multiple welcome</span>
       </div>
       <h3>Baby Diapers — Size 2</h3>
-      <p class="card-note">Huggies or Softcare Gold preferred. Any pack size — we can never have too many!</p>
+      <p class="card-note">Molfix ComfortFix or Huggies preferred. Any pack size — we can never have too many!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 2 (Huggies or Softcare Gold)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 2 (Molfix or Huggies)')">I'll contribute! 🎁</button>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/molfix-comfortfix-diapers-size-2-giga-economy-pack-x-3-total-288-count-129083516.html" target="_blank" rel="noopener">Molfix ComfortFix Size 2 (Giga Pack) →</a>
       </div>
     </div>
 
     <!-- Diapers Size 3 -->
     <div class="card">
-      <div class="card-img"><span class="img-placeholder">👶</span></div>
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/1969814/1.jpg?0000" alt="Molfix Diapers Size 3" loading="lazy" /></div>
       <div class="card-top">
         <span class="card-emoji">👶</span>
         <span class="badge badge-multi">Stock up! Multiple welcome</span>
       </div>
       <h3>Baby Diapers — Size 3</h3>
-      <p class="card-note">Huggies or Softcare Gold preferred. Any pack size — we can never have too many!</p>
+      <p class="card-note">Molfix Air Dry or Huggies preferred. Any pack size — we can never have too many!</p>
       <div class="card-actions">
-        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 3 (Huggies or Softcare Gold)')">I'll contribute! 🎁</button>
+        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 3 (Molfix or Huggies)')">I'll contribute! 🎁</button>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/generic-molfix-air-dry-size-3-4-9kg-96pcs-418969101.html" target="_blank" rel="noopener">Molfix Air Dry Size 3 (96 pcs) →</a>
       </div>
     </div>
 
@@ -420,16 +428,34 @@
       </div>
     </div>
 
-    <!-- Baby Bouncer -->
+    <!-- Diaper Bag -->
     <div class="card">
-      <div class="card-img"><span class="img-placeholder">🪑</span></div>
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/14/7707914/1.jpg?6636" alt="Multifunctional Diaper Bag" loading="lazy" /></div>
+      <div class="card-top">
+        <span class="card-emoji">👜</span>
+        <span class="badge badge-link">View item</span>
+      </div>
+      <h3>Multifunctional Diaper Bag</h3>
+      <p class="card-note">A spacious mummy bag that unfolds into a portable baby bed — perfect for outings, church, and travel. Two great options to choose from!</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Multifunctional Diaper Bag')">I'll gift this! 🎁</button>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/generic-multipurpose-mom-bag-2-in-1-portable-baby-bed-baby-diaper-bag-with-foldable-travel-bed.-baby-traveling-bag.-diaper-bag.-new-mom-bag.-mommy-travel-carry-bagbed.-bed-for-new-born-bed-419707741.html" target="_blank" rel="noopener">2-in-1 Mom Bag + Portable Bed →</a>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/fashion-diaper-bags-backpack-mummy-maternity-nappy-bag-baby-net-77287077.html" target="_blank" rel="noopener">Maternity Nappy Backpack →</a>
+      </div>
+    </div>
+
+    <!-- Baby Electric Swing -->
+    <div class="card">
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/05/4573373/1.jpg?6788" alt="Mastela Baby Electric Swing" loading="lazy" /></div>
       <div class="card-top">
         <span class="card-emoji">🪑</span>
+        <span class="badge badge-link">View item</span>
       </div>
-      <h3>Baby Bouncer</h3>
-      <p class="card-note">A cosy bouncer seat — brilliant for keeping Baby O happy while mama gets a moment to breathe. Link coming soon!</p>
+      <h3>Baby Electric Swing</h3>
+      <p class="card-note">Mastela 3-in-1 electric swing — soothing motion, music, and toy bar to keep Baby O happy while mama gets a moment to breathe!</p>
       <div class="card-actions">
-        <button class="btn btn-gift" onclick="openModal('Baby Bouncer')">I'll gift this! 🎁</button>
+        <button class="btn btn-gift" onclick="openModal('Mastela Baby Electric Swing')">I'll gift this! 🎁</button>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/mastela-3-in-1-baby-electric-swing-253277138.html" target="_blank" rel="noopener">View on Jumia →</a>
       </div>
     </div>
 
@@ -463,14 +489,17 @@
 
     <!-- Baby Bath Set -->
     <div class="card">
-      <div class="card-img"><span class="img-placeholder">🛁</span></div>
+      <div class="card-img"><img src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/83/2854904/1.jpg?4125" alt="Baby Bath Set" loading="lazy" /></div>
       <div class="card-top">
         <span class="card-emoji">🛁</span>
+        <span class="badge badge-link">View item</span>
       </div>
       <h3>Baby Bath Set</h3>
-      <p class="card-note">Aveeno Baby Bath &amp; Body Care — ultra gentle on sensitive newborn skin. Link coming soon!</p>
+      <p class="card-note">A complete baby bath set — foldable tub with accessories or a full Mother Care tube set. Either is a wonderful choice!</p>
       <div class="card-actions">
-        <button class="btn btn-gift" onclick="openModal('Aveeno Baby Bath &amp; Body Care Set')">I'll gift this! 🎁</button>
+        <button class="btn btn-gift" onclick="openModal('Baby Bath Set')">I'll gift this! 🎁</button>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/fashion-foldable-baby-bath-tub-with-accessories-7-in-1-set-322187076.html" target="_blank" rel="noopener">Foldable Baby Bath Tub (7-in-1) →</a>
+        <a class="btn btn-shop" href="https://www.jumia.com.ng/generic-new-baby-mother-care-bathing-tube-set-8pics-55877211.html" target="_blank" rel="noopener">Mother Care Bathing Tube Set →</a>
       </div>
     </div>
 
@@ -519,7 +548,7 @@
   </div>
 </section>
 
-<!-- ===== MODAL ===== -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal">
     <div class="modal-emoji">🎁</div>
@@ -533,18 +562,13 @@
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <p>Made with love for <strong>Baby O</strong></p>
   <p>Arriving October 2026 &nbsp;·&nbsp; Nelson &amp; Rach</p>
 </footer>
 
 <script>
-  // ============================================================
-  // ⚙️  YOUR WHATSAPP NUMBER — update this before going live!
-  // Format: country code + number with no spaces or + sign
-  // Nigeria example: 2348012345678
-  // ============================================================
   const WHATSAPP_NUMBER = '2348162188125';
 
   let pendingItem = '';
