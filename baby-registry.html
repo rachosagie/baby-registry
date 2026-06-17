@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby O's Registry | Nelson & Rach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FAF7F4;
+      color: #2C2C2C;
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #EDE8E3 0%, #D6E4D5 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background:
+        radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%),
+        radial-gradient(circle at 70% 20%, rgba(196,168,130,0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #7D9E7C;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 9vw, 76px);
+      font-weight: 400;
+      color: #2C2C2C;
+      line-height: 1.1;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: #7D9E7C;
+    }
+    .hero-due {
+      font-size: 14px;
+      color: #7A6E65;
+      margin-top: 14px;
+      letter-spacing: 1px;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: #C4A882;
+      margin: 28px auto;
+    }
+    .hero-message {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 16px;
+      color: #4A4A4A;
+      line-height: 1.85;
+    }
+    .hero-sign {
+      margin-top: 22px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: #7D9E7C;
+    }
+
+    /* HOW IT WORKS */
+    .how-it-works {
+      background: #fff;
+      padding: 28px 24px;
+      text-align: center;
+      border-top: 1px solid #EDE8E3;
+      border-bottom: 1px solid #EDE8E3;
+    }
+    .how-it-works p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: #6A6A6A;
+      line-height: 1.75;
+    }
+    .how-it-works strong { color: #2C2C2C; }
+
+    /* REGISTRY SECTION */
+    .registry {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 14px;
+      color: #7A6E65;
+      margin-bottom: 44px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #EDE8E3;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .card-emoji { font-size: 30px; line-height: 1; }
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .badge-multi { background: #EAF3EA; color: #4E7D4D; }
+    .badge-link  { background: #EDE8E3; color: #7A6E65; }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #2C2C2C;
+      line-height: 1.3;
+    }
+    .card-note {
+      font-size: 13px;
+      color: #7A6E65;
+      line-height: 1.6;
+    }
+    .card-actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-gift  { background: #7D9E7C; color: #fff; }
+    .btn-gift:hover  { background: #698A68; }
+    .btn-multi { background: #2C2C2C; color: #fff; }
+    .btn-multi:hover { background: #444; }
+    .btn-shop  {
+      background: transparent;
+      color: #7D9E7C;
+      border: 1.5px solid #7D9E7C;
+    }
+    .btn-shop:hover { background: #EAF3EA; }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 30px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .modal-emoji { font-size: 40px; margin-bottom: 12px; }
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .modal p { font-size: 14px; color: #6A6A6A; margin-bottom: 20px; line-height: 1.6; }
+    .modal input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #EDE8E3;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+      color: #2C2C2C;
+    }
+    .modal input:focus { border-color: #7D9E7C; }
+    .modal-actions { display: flex; gap: 10px; }
+    .modal-actions button,
+    .modal-actions a {
+      flex: 1;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+    #modal-cancel  { background: #F0EDE8; color: #4A4A4A; }
+    #modal-confirm { background: #7D9E7C; color: #fff; }
+    #modal-confirm:hover { background: #698A68; }
+
+    /* FOOTER */
+    footer {
+      background: #2C2C2C;
+      color: #9A9082;
+      text-align: center;
+      padding: 36px 24px;
+      font-size: 13px;
+      line-height: 2;
+    }
+    footer strong {
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* CARD IMAGE */
+    .card-img {
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #EDE8E3, #D6E4D5);
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .card-img .img-placeholder {
+      font-size: 52px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 500px) {
+      .hero { padding: 56px 20px 44px; }
+      .registry { padding: 40px 16px; }
+      .grid { grid-template-columns: 1fr; }
+      .modal { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <p class="hero-label">A little wishlist from our family to yours</p>
+  <h1>Baby <em>O</em> is Coming</h1>
+  <p class="hero-due">Arriving October 2026 &nbsp;·&nbsp; Nelson &amp; Rach</p>
+  <div class="hero-divider"></div>
+  <p class="hero-message">
+    We're over the moon as we count down to meeting Baby O! As we prepare to welcome our little one this October, we'd love nothing more than to share this joy with the people who mean the most to us. If you'd like to celebrate Baby O's arrival with a gift, we've put together this little wishlist to help us get ready. Truly, your love and presence in our lives is the greatest gift of all.
+  </p>
+  <p class="hero-sign">With so much love, Rach &amp; Nelson ♡</p>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<div class="how-it-works">
+  <p>
+    See something you'd love to gift? Click <strong>"I'll gift this!"</strong> and it'll send us a quick WhatsApp message so we know to expect it. For items marked <strong>"Stock up! Multiple welcome"</strong> — feel free to grab one even if others have too. Every pack counts! 🎁
+  </p>
+</div>
+
+<!-- ===== REGISTRY ===== -->
+<section class="registry">
+  <h2 class="section-title">Baby O's Wishlist</h2>
+  <p class="section-sub">Click any item with a shop link to see exactly what we have in mind.</p>
+
+  <div class="grid">
+
+    <!-- Baby Wipes -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">🧻</span></div>
+      <div class="card-top">
+        <span class="card-emoji">🧻</span>
+        <span class="badge badge-multi">Stock up! Multiple welcome</span>
+      </div>
+      <h3>Baby Wipes</h3>
+      <p class="card-note">Huggies or Angel brand — must be <strong>alcohol-free and fragrance-free</strong>. Any pack size is welcome!</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Wipes (alcohol &amp; fragrance-free — Huggies or Angel)')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Breast Pump -->
+    <div class="card">
+      <div class="card-img"><img src="https://jidenbreastpump.com/wp-content/uploads/2025/12/IMG_2036-600x750.png" alt="Jiden Easy Life Pumping Bundle" /></div>
+      <div class="card-top">
+        <span class="card-emoji">🍼</span>
+        <span class="badge badge-link">View item</span>
+      </div>
+      <h3>Jiden Easy Life Pumping Bundle</h3>
+      <p class="card-note">Comes with two wearable pumps — a total game changer for new mums. This is a big one on our list!</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Jiden Easy Life Pumping Bundle')">I'll gift this! 🎁</button>
+        <a class="btn btn-shop" href="https://jidenbreastpump.com/shop/easy-life-pumping-bundle-with-two-wearable-pumps/" target="_blank" rel="noopener">View on Jiden →</a>
+      </div>
+    </div>
+
+    <!-- Steam Sterilizer -->
+    <div class="card">
+      <div class="card-img"><img src="https://jidenbreastpump.com/wp-content/uploads/2025/12/IMG_2012-600x750.png" alt="Jiden Steam Sterilizer" /></div>
+      <div class="card-top">
+        <span class="card-emoji">♨️</span>
+        <span class="badge badge-link">View item</span>
+      </div>
+      <h3>Jiden Steam Sterilizer</h3>
+      <p class="card-note">Keeps all bottles and feeding equipment clean and germ-free — essential in the early months.</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Jiden Steam Sterilizer')">I'll gift this! 🎁</button>
+        <a class="btn btn-shop" href="https://jidenbreastpump.com/shop/jiden-steam-sterilizer/" target="_blank" rel="noopener">View on Jiden →</a>
+      </div>
+    </div>
+
+    <!-- Diapers Size 2 -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">👶</span></div>
+      <div class="card-top">
+        <span class="card-emoji">👶</span>
+        <span class="badge badge-multi">Stock up! Multiple welcome</span>
+      </div>
+      <h3>Baby Diapers — Size 2</h3>
+      <p class="card-note">Huggies or Softcare Gold preferred. Any pack size — we can never have too many!</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 2 (Huggies or Softcare Gold)')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Diapers Size 3 -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">👶</span></div>
+      <div class="card-top">
+        <span class="card-emoji">👶</span>
+        <span class="badge badge-multi">Stock up! Multiple welcome</span>
+      </div>
+      <h3>Baby Diapers — Size 3</h3>
+      <p class="card-note">Huggies or Softcare Gold preferred. Any pack size — we can never have too many!</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 3 (Huggies or Softcare Gold)')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Diapers Size 4 -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">👶</span></div>
+      <div class="card-top">
+        <span class="card-emoji">👶</span>
+        <span class="badge badge-multi">Stock up! Multiple welcome</span>
+      </div>
+      <h3>Baby Diapers — Size 4</h3>
+      <p class="card-note">Huggies or Softcare Gold preferred. Any pack size — we can never have too many!</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Diapers Size 4 (Huggies or Softcare Gold)')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Baby Bouncer -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">🪑</span></div>
+      <div class="card-top">
+        <span class="card-emoji">🪑</span>
+      </div>
+      <h3>Baby Bouncer</h3>
+      <p class="card-note">A cosy bouncer seat — brilliant for keeping Baby O happy while mama gets a moment to breathe. Link coming soon!</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Baby Bouncer')">I'll gift this! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Changing Pad -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">🛏️</span></div>
+      <div class="card-top">
+        <span class="card-emoji">🛏️</span>
+      </div>
+      <h3>Changing Pad</h3>
+      <p class="card-note">A waterproof, cushioned changing pad for safe and comfy nappy changes. Link coming soon!</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Changing Pad')">I'll gift this! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Bedside Baby Cart -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">🗂️</span></div>
+      <div class="card-top">
+        <span class="card-emoji">🗂️</span>
+        <span class="badge badge-link">View item</span>
+      </div>
+      <h3>Bedside Baby Cart</h3>
+      <p class="card-note">A rolling organiser to keep all the nighttime essentials within arm's reach. Such a lifesaver!</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Bedside Baby Cart')">I'll gift this! 🎁</button>
+        <a class="btn btn-shop" href="https://share.temu.com/rS2UwtMbaJB" target="_blank" rel="noopener">View on Temu →</a>
+      </div>
+    </div>
+
+    <!-- Baby Bath Set -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">🛁</span></div>
+      <div class="card-top">
+        <span class="card-emoji">🛁</span>
+      </div>
+      <h3>Baby Bath Set</h3>
+      <p class="card-note">Aveeno Baby Bath &amp; Body Care — ultra gentle on sensitive newborn skin. Link coming soon!</p>
+      <div class="card-actions">
+        <button class="btn btn-gift" onclick="openModal('Aveeno Baby Bath &amp; Body Care Set')">I'll gift this! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Onesies 3-6M -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">👕</span></div>
+      <div class="card-top">
+        <span class="card-emoji">👕</span>
+        <span class="badge badge-multi">Multiple welcome</span>
+      </div>
+      <h3>Baby Zip Onesies — 3–6 Months</h3>
+      <p class="card-note">Easy zip-up onesies for those sleepy 3am nappy changes. Any cute style — we love them all!</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Zip Onesies 3–6 Months')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Onesies 6-9M -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">👕</span></div>
+      <div class="card-top">
+        <span class="card-emoji">👕</span>
+        <span class="badge badge-multi">Multiple welcome</span>
+      </div>
+      <h3>Baby Zip Onesies — 6–9 Months</h3>
+      <p class="card-note">Zip onesies for when Baby O is getting bigger and more wriggly! Any cute style welcome.</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Zip Onesies 6–9 Months')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+    <!-- Baby Clothes -->
+    <div class="card">
+      <div class="card-img"><span class="img-placeholder">🧦</span></div>
+      <div class="card-top">
+        <span class="card-emoji">🧦</span>
+        <span class="badge badge-multi">Multiple welcome</span>
+      </div>
+      <h3>Baby Clothes</h3>
+      <p class="card-note">Outfits, sleepsuits, socks, sets — whatever catches your eye! We'll adore whatever you choose.</p>
+      <div class="card-actions">
+        <button class="btn btn-multi" onclick="openModal('Baby Clothes')">I'll contribute! 🎁</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-emoji">🎁</div>
+    <h2>How wonderful!</h2>
+    <p id="modal-text">You're gifting this item. Pop in your name so we know it's you!</p>
+    <input type="text" id="modal-name" placeholder="Your name" maxlength="60" />
+    <div class="modal-actions">
+      <button id="modal-cancel" onclick="closeModal()">Cancel</button>
+      <a id="modal-confirm" href="#" target="_blank" rel="noopener">Send via WhatsApp 💚</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Made with love for <strong>Baby O</strong></p>
+  <p>Arriving October 2026 &nbsp;·&nbsp; Nelson &amp; Rach</p>
+</footer>
+
+<script>
+  // ============================================================
+  // ⚙️  YOUR WHATSAPP NUMBER — update this before going live!
+  // Format: country code + number with no spaces or + sign
+  // Nigeria example: 2348012345678
+  // ============================================================
+  const WHATSAPP_NUMBER = '2348162188125';
+
+  let pendingItem = '';
+
+  function openModal(itemName) {
+    pendingItem = itemName;
+    document.getElementById('modal-text').innerHTML =
+      'You\'re gifting: <strong>' + itemName + '</strong><br>Pop in your name so we know it\'s you!';
+    document.getElementById('modal-name').value = '';
+    document.getElementById('modal-overlay').classList.add('open');
+    setTimeout(() => document.getElementById('modal-name').focus(), 100);
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+  }
+
+  document.getElementById('modal-confirm').addEventListener('click', function () {
+    const name = document.getElementById('modal-name').value.trim() || 'A lovely friend';
+    const message = encodeURIComponent(
+      'Hi Nelson & Rach! 🎉 It\'s ' + name + '. I\'d love to gift: ' + pendingItem + ' for Baby O! 💚'
+    );
+    this.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + message;
+  });
+
+  document.getElementById('modal-overlay').addEventListener('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
